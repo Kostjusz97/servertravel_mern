@@ -12,7 +12,7 @@ import { handleValidationErrors, checkAuth } from './utils/index.js';
 mongoose
     .connect('process.env.MONGODB_URL')
     .then(() => console.log('DB ok'))
-    .catch(() => console.log('DB error', err));
+    .catch((err) => console.log('DB error', err));
 
 const app = express();
 
