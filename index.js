@@ -54,7 +54,7 @@ app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
 
 app.post('/avatar', avatar.single('avatar'), (req, res) => {
     res.json({
-        url: `http://localhost:4444/avatars/${req.file.originalname}`,
+        url: `${process.env.REACT_APP_API_URL}/avatars/${req.file.originalname}`,
     })
 });
 
