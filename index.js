@@ -10,7 +10,7 @@ import { postCreateValidation } from './validations.js';
 import { handleValidationErrors, checkAuth } from './utils/index.js';
 
 mongoose
-    .connect('process.env.MONGODB_URL')
+    .connect(process.env.MONGODB_URL)
     .then(() => console.log('DB ok'))
     .catch((err) => console.log('DB error', err));
 
@@ -54,7 +54,7 @@ app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
 
 app.post('/avatar', avatar.single('avatar'), (req, res) => {
     res.json({
-        url: `${process.env.REACT_APP_API_URL}/avatars/${req.file.originalname}`,
+        url: `http://localhost:4444/avatars/${req.file.originalname}`,
     })
 });
 
